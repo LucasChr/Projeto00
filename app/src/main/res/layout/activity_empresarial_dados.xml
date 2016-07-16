@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/empresas"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
-    tools:context="com.example.lucas.projeto00.PEmpresarial.EmpresarialDadosActivity"
-    style="@style/empresas">
+    tools:context="com.example.lucas.projeto00.PEmpresarial.EmpresarialDadosActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,46 +14,113 @@
         android:orientation="horizontal">
 
         <TextView
+            style="@style/letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_Nome"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/empresarial_dados_tvNome"
+            style="@style/letras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/empresarial_dados_tvNome"
-            style="@style/letras"/>
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_Abrirmapa"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        style="@style/letras"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageButton
+        <TextView
+            style="@style/letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_Latitude"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/empresarial_dados_tvLatitude"
+            style="@style/letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="latitude"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_Longitude"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/empresarial_dados_tvLongitude"
+            style="@style/letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="longitude"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
+
+    <Button
         android:id="@+id/empresarial_dados_btnImgEndereco"
         android:layout_width="match_parent"
-        android:layout_height="113dp"
-        android:layout_gravity="right"
-        android:onClick="abrirMapa" />
-
-    <TextView
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="telefone"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/empresarial_dados_tvTelefone"
-        style="@style/letras"/>
+        android:onClick="abrirMapa"
+        android:text="@string/btn_AbirMapa" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="site"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/empresarial_dados_tvSite"
-        style="@style/letras"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_Telefone"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/empresarial_dados_tvTelefone"
+            style="@style/letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="telefone"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_Site"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
 
+        <TextView
+            android:id="@+id/empresarial_dados_tvSite"
+            style="@style/letras"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="site"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -65,8 +132,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/btn_site"
-            android:onClick="abrirSite"/>
+            android:onClick="abrirSite"
+            android:text="@string/btn_site" />
 
         <Button
             android:id="@+id/empresarial_dados_btnLigar"
@@ -76,16 +143,16 @@
             android:text="@string/btn_ligar" />
 
         <TextView
+            style="@style/letras"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/tv_ID"
-            style="@style/letras"/>
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <EditText
+            android:id="@+id/empresarial_dados_edtID"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/empresarial_dados_edtID"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
 </LinearLayout>

@@ -72,24 +72,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/tv_Endereco"
+        android:text="@string/tv_Latitude"
         android:id="@+id/textView3"
         style="@style/letras"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textWebEmailAddress"
+        android:ems="10"
+        android:id="@+id/empresarial_cad_edtLatitude" />
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:hint="@string/tv_EnderecoAtual"
-        android:id="@+id/empresarial_cad_tvEndereco"
+        android:text="@string/tv_Longitude"
+        android:id="@+id/textViews"
         style="@style/letras"/>
 
-    <Button
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/btn_SetarEndereco"
-        android:id="@+id/empresarial_cad_btnEndereço"
-        android:layout_gravity="center_horizontal"
-        android:onClick="definirEndereco"/>
+        android:inputType="textWebEmailAddress"
+        android:ems="10"
+        android:id="@+id/empresarial_cad_edtLongitude" />
 
 </LinearLayout>

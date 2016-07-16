@@ -19,8 +19,6 @@ import java.util.List;
 
 public class EmpresarialListActivity extends ListActivity {
 
-    final int MENU_NOVO = 1;
-    final int MENU_CANCELAR = 2;
     EmpresaDAO dao;
     List<Empresa> empresas;
     EmpresarialListAdapter adapter;

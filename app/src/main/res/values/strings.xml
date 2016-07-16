@@ -2,15 +2,16 @@
     <string name="app_name">Projeto00</string>
     <string name="btn_pontosTuristicos">Pontos Turísticos</string>
     <string name="btn_pontosEmpresariais">Pontos Empresariais</string>
-    <string name="tv_Nome">Nome</string>
-    <string name="tv_Telefone">Telefone</string>
-    <string name="tv_Endereco">Endereco</string>
+    <string name="tv_Nome">Nome_</string>
+    <string name="tv_Telefone">Telefone_</string>
+    <string name="tv_Latitude">Latitude_</string>
+    <string name="tv_Longitude">Longitude_</string>
     <string name="btn_Mapa">Ir para</string>
     <string name="tv_EnderecoAtual">Encereço atual</string>
-    <string name="btn_SetarEndereco">Definir Endereço</string>
-    <string name="tv_ID">ID</string>
+    <string name="tv_ID">ID_</string>
     <string name="btn_ligar">Ligar</string>
     <string name="tv_Abrirmapa">Abrir localização no mapa</string>
     <string name="btn_site">Site</string>
-    <string name="tv_Site">Site</string>
+    <string name="tv_Site">Site_</string>
+    <string name="btn_AbirMapa">Abrir local no mapa</string>
 </resources>

@@ -5,7 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
 import com.example.lucas.projeto00.SQLITE.BancoDadosE;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,40 +18,42 @@ public class EmpresaDAO {
 
     SQLiteDatabase db;
 
-    public EmpresaDAO(Context context){
+    public EmpresaDAO(Context context) {
         db = BancoDadosE.getDB(context);
     }
 
 
-    public void salvar(Empresa empresa){
+    public void salvar(Empresa empresa) {
         ContentValues values = new ContentValues();
-        values.put("nome",empresa.getNome());
-        values.put("telefone",empresa.getTelefone());
-        values.put("endereco",empresa.getEndereco());
-        values.put("site",empresa.getSite());
-        db.insert("tbl_empresas",null,values);
+        values.put("nome", empresa.getNome());
+        values.put("telefone", empresa.getTelefone());
+        values.put("latitude", empresa.getLatitude());
+        values.put("longitude", empresa.getLongitude());
+        values.put("site", empresa.getSite());
+        db.insert("tbl_empresas", null, values);
     }
 
-    public void alterar(Empresa empresa){
+    public void alterar(Empresa empresa) {
         ContentValues values = new ContentValues();
-        values.put("nome",empresa.getNome());
-        values.put("telefone",empresa.getTelefone());
-        values.put("endereco",empresa.getEndereco());
-        values.put("site",empresa.getSite());
+        values.put("nome", empresa.getNome());
+        values.put("telefone", empresa.getTelefone());
+        values.put("latitude", empresa.getLatitude());
+        values.put("longitude", empresa.getLongitude());
+        values.put("site", empresa.getSite());
 
         String id = String.valueOf(empresa.getId());
         String[] whereArgs = new String[]{id};
 
-        db.update("tbl_empresas",values,"_id = ?",whereArgs);
+        db.update("tbl_empresas", values, "_id = ?", whereArgs);
     }
 
-    public Empresa buscar(String id){
+    public Empresa buscar(String id) {
 
 
-        String[] colunas = new String[]{"_id","nome","telefone","endereco","site"};
+        String[] colunas = new String[]{"_id", "nome", "telefone", "latitude", "longitude", "site"};
         String[] whereArgs = new String[]{id};
 
-        Cursor c = db.query("tbl_empresas",colunas,"_id = ?",whereArgs,null,null,null);
+        Cursor c = db.query("tbl_empresas", colunas, "_id = ?", whereArgs, null, null, null);
 
         c.moveToFirst();
 
@@ -57,19 +61,20 @@ public class EmpresaDAO {
         empresa.setId(c.getLong(c.getColumnIndex("_id")));
         empresa.setNome(c.getString(c.getColumnIndex("nome")));
         empresa.setTelefone(c.getString(c.getColumnIndex("telefone")));
-        empresa.setEndereco(c.getString(c.getColumnIndex("endereco")));
+        empresa.setLatitude(c.getString(c.getColumnIndex("latitude")));
+        empresa.setLongitude(c.getString(c.getColumnIndex("longitude")));
         empresa.setSite(c.getString(c.getColumnIndex("site")));
 
         return empresa;
     }
 
-    public List<Empresa> listar(){
+    public List<Empresa> listar() {
 
-        String[]colunas =  new String[]{"_id","nome","telefone","endereco"};
-        Cursor c = db.query("tbl_empresas",colunas,null,null,null,null,null);
+        String[] colunas = new String[]{"_id", "nome", "telefone", "latitude", "longitude"};
+        Cursor c = db.query("tbl_empresas", colunas, null, null, null, null, null);
 
         List<Empresa> empresas = new ArrayList<Empresa>();
-        if(c.moveToFirst()){
+        if (c.moveToFirst()) {
             do {
                 Empresa empresa = new Empresa();
                 empresa.setId(c.getLong(c.getColumnIndex("_id")));
@@ -78,15 +83,15 @@ public class EmpresaDAO {
 
                 empresas.add(empresa);
 
-                Log.i("lista","Empresa");
-            }while (c.moveToNext());
+                Log.i("lista", "Empresa");
+            } while (c.moveToNext());
         }
-        return  empresas;
+        return empresas;
     }
 
 
-    public void excluir(String id){
+    public void excluir(String id) {
         String[] whereArgs = new String[]{id};
-        db.delete("tbl_empresas","_id = ?",whereArgs);
+        db.delete("tbl_empresas", "_id = ?", whereArgs);
     }
 }

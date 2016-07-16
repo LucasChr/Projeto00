@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/empresas"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    style="@style/empresas">
+    android:orientation="vertical">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Nome"
         android:id="@+id/empresarial_list_item_tvNome"
-        style="@style/letras"/>
-
-    <TextView
+        style="@style/letras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Telefone"
+        android:text="Nome"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
         android:id="@+id/empresarial_list_item_tvTelefone"
-        style="@style/letras"/>
-
-    <TextView
+        style="@style/letras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Endereco"
-        android:id="@+id/empresarial_list_item_tvEndereco"
-        style="@style/letras"/>
+        android:text="Telefone"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/empresarial_list_item_tvSite"
+        style="@style/letras"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Site"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </LinearLayout>

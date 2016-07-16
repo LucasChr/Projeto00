@@ -1,22 +1,23 @@
 package com.example.lucas.projeto00.PEmpresarial;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.lucas.projeto00.R;
 
-public class EmpresarialCadActivity extends Activity {
+public class EmpresarialCadActivity extends Activity implements LocationListener {
 
     EmpresaDAO dao;
-    TextView edtEndereco;
-    EditText edtID, edtNome, edtTelefone, edtSite;
+    EditText edtID, edtNome, edtTelefone, edtSite, edtLatitude, edtLongitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,8 @@ public class EmpresarialCadActivity extends Activity {
         edtID = (EditText) findViewById(R.id.empresarial_cad_edtID);
         edtNome = (EditText) findViewById(R.id.empresarial_cad_edtNome);
         edtTelefone = (EditText) findViewById(R.id.empresarial_cad_edtTelefone);
-        edtEndereco = (TextView) findViewById(R.id.empresarial_cad_tvEndereco);
+        edtLatitude = (EditText) findViewById(R.id.empresarial_cad_edtLatitude);
+        edtLongitude = (EditText) findViewById(R.id.empresarial_cad_edtLongitude);
         edtSite = (EditText)findViewById(R.id.empresarial_cad_edtSite);
 
         dao = new EmpresaDAO(this);
@@ -68,7 +70,8 @@ public class EmpresarialCadActivity extends Activity {
         e.setNome(edtNome.getText().toString());
         e.setTelefone(edtTelefone.getText().toString());
         e.setSite(edtSite.getText().toString());
-        e.setEndereco(edtEndereco.getText().toString());
+        e.setLatitude(edtLatitude.getText().toString());
+        e.setLongitude(edtLongitude.getText().toString());
         dao.salvar(e);
         setResult(1);
         finish();
@@ -79,8 +82,39 @@ public class EmpresarialCadActivity extends Activity {
         edtNome.setText(empresa.getNome());
         edtTelefone.setText(empresa.getTelefone());
         edtSite.setText(empresa.getSite());
-        edtEndereco.setText(empresa.getEndereco());
+        edtLatitude.setText(empresa.getLatitude());
+        edtLongitude.setText(empresa.getLongitude());
         setResult(3);
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        LocationManager lM = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        lM.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,this);
+        lM.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0,0,this);
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+        LocationManager lM = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        edtLatitude.setText(String.valueOf(location.getLatitude()));
+        edtLongitude.setText(String.valueOf(location.getLongitude()));
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
 }

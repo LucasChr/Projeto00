@@ -20,7 +20,7 @@ public class EmpresarialDadosActivity extends Activity {
 
     EmpresaDAO dao;
     EditText edtID;
-    TextView tvNome, tvTelefone, tvSite;
+    TextView tvNome, tvTelefone, tvSite, tvLatitude, tvLongitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,8 @@ public class EmpresarialDadosActivity extends Activity {
         tvNome = (TextView) findViewById(R.id.empresarial_dados_tvNome);
         tvTelefone = (TextView) findViewById(R.id.empresarial_dados_tvTelefone);
         tvSite = (TextView) findViewById(R.id.empresarial_dados_tvSite);
+        tvLatitude = (TextView) findViewById(R.id.empresarial_dados_tvLatitude);
+        tvLongitude = (TextView) findViewById(R.id.empresarial_dados_tvLongitude);
 
         dao = new EmpresaDAO(this);
         Intent intent = getIntent();
@@ -86,7 +88,7 @@ public class EmpresarialDadosActivity extends Activity {
     public void excluir() {
         dao.excluir(edtID.getText().toString());
         setResult(4);
-        Toast.makeText(this,"Excluído!",Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Excluído!", Toast.LENGTH_LONG).show();
         finish();
     }
 
@@ -100,6 +102,14 @@ public class EmpresarialDadosActivity extends Activity {
         tvNome.setText(empresa.getNome());
         tvTelefone.setText(empresa.getTelefone());
         tvSite.setText(empresa.getSite());
+        tvLatitude.setText(empresa.getLatitude());
+        tvLongitude.setText(empresa.getLongitude());
         setResult(3);
+    }
+
+    public void abrirMapa(View v) {
+        //Intent it = new Intent(Intent.ACTION_VIEW, Uri.parse("google.streetview:cbll" + tvLatitude.getText() +","+tvLongitude.getText()));
+        Intent it = new Intent(Intent.ACTION_VIEW, Uri.parse("geo: " + tvLatitude.getText() + "," + tvLongitude.getText() + "?z=17"));
+        startActivity(it);
     }
 }
