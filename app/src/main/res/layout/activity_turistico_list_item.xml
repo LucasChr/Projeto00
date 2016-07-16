@@ -13,12 +13,4 @@
         android:id="@+id/turistico_list_item_tvNome"
         style="@style/letras"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Localizacao"
-        android:id="@+id/turistico_list_item_tvLocalizacao"
-        style="@style/letras"/>
-
 </LinearLayout>

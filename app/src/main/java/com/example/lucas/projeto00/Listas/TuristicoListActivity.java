@@ -1,6 +1,7 @@
 package com.example.lucas.projeto00.Listas;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.example.lucas.projeto00.PTuristico.Turistico;
 import com.example.lucas.projeto00.PTuristico.TuristicoCadActivity;
 import com.example.lucas.projeto00.PTuristico.TuristicoDAO;
+import com.example.lucas.projeto00.PTuristico.TuristicoDadosActivity;
 import com.example.lucas.projeto00.R;
 
 import java.util.List;
@@ -32,6 +34,25 @@ public class TuristicoListActivity extends ListActivity {
         turisticos = dao.listar();
         adapter = new TuristicoListAdapter(this, R.layout.activity_turistico_list_item, turisticos);
         setListAdapter(adapter);
+
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setTitle(R.string.dialog_test);
+        dialog.setMessage("Carregamento lento...");
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setCancelable(true);
+        dialog.show();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (valor <= max) {
+                    simularDownload();
+                    dialog.setProgress(valor);
+                }
+                dialog.dismiss();
+            }
+        }).start();
+
     }
 
 
@@ -82,9 +103,20 @@ public class TuristicoListActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Turistico t = turisticos.get(position);
-        Intent it = new Intent(this, TuristicoCadActivity.class);
+        Intent it = new Intent(this, TuristicoDadosActivity.class);
         it.putExtra("ID", String.valueOf(t.getId()));
         startActivityForResult(it, 2);
+    }
+
+    int valor = 0;
+    int max =50;
+    public void simularDownload() {
+        valor++;
+        try {
+            Thread.sleep(100);
+        } catch (Exception e) {
+
+        }
     }
 }
 

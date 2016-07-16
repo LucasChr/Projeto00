@@ -9,23 +9,23 @@
     </style>
 
     <style name="Fundo">
-        <item name="android:background">#00FF00</item>
+        <item name="android:background">#235555</item>
     </style>
 
     <style name="botao">
-        <item name="android:background">#2F4F4F</item>
+        <item name="android:background">#2F434F</item>
     </style>
 
     <style name="empresas">
-        <item name="android:background">#32CD32</item>
+        <item name="android:background">#323142</item>
     </style>
 
     <style name="turistico">
-        <item name="android:background">#228B22</item>
+        <item name="android:background">#320932</item>
     </style>
 
     <style name="letras">
-        <item name="android:textColor">#0000FF</item>
+        <item name="android:textColor">#ffffff</item>
     </style>
 
 </resources>

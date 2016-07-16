@@ -1,6 +1,7 @@
 package com.example.lucas.projeto00.Listas;
 
 import android.app.ListActivity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -32,6 +33,24 @@ public class EmpresarialListActivity extends ListActivity {
         empresas = dao.listar();
         adapter = new EmpresarialListAdapter(this, R.layout.activity_empresarial_list_item, empresas);
         setListAdapter(adapter);
+
+        final ProgressDialog dialog = new ProgressDialog(this);
+        dialog.setTitle(R.string.dialog_test);
+        dialog.setMessage("Carregamento lento...");
+        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        dialog.setCancelable(true);
+        dialog.show();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (valor <= max) {
+                    simularDownload();
+                    dialog.setProgress(valor);
+                }
+                dialog.dismiss();
+            }
+        }).start();
     }
 
     @Override
@@ -84,5 +103,16 @@ public class EmpresarialListActivity extends ListActivity {
         Intent it = new Intent(this, EmpresarialDadosActivity.class);
         it.putExtra("ID", String.valueOf(e.getId()));
         startActivityForResult(it, 2);
+    }
+
+    int valor = 0;
+    int max =50;
+    public void simularDownload() {
+        valor++;
+        try {
+            Thread.sleep(100);
+        } catch (Exception e) {
+
+        }
     }
 }

@@ -24,14 +24,16 @@ public class TuristicoDAO {
     public void salvar(Turistico turistico) {
         ContentValues v = new ContentValues();
         v.put("nome", turistico.getNome());
-        v.put("endereco", turistico.getEndereco());
+        v.put("latitude", turistico.getLatitude());
+        v.put("longitude", turistico.getLongitude());
         db.insert("tbl_turisticos", null, v);
     }
 
     public void alterar(Turistico turistico) {
         ContentValues v = new ContentValues();
         v.put("nome", turistico.getNome());
-        v.put("endereco", turistico.getEndereco());
+        v.put("latitude", turistico.getLatitude());
+        v.put("longitude", turistico.getLongitude());
 
         String id = String.valueOf(turistico.getId());
         String[] wArgs = new String[]{id};
@@ -40,7 +42,7 @@ public class TuristicoDAO {
     }
 
     public Turistico buscar(String id) {
-        String[] col = new String[]{"_id", "nome", "endereco"};
+        String[] col = new String[]{"_id", "nome", "latitude", "longitude"};
         String[] wArgs = new String[]{id};
 
         Cursor c = db.query("tbl_turisticos", col, "_id=?", wArgs, null, null, null);
@@ -50,14 +52,15 @@ public class TuristicoDAO {
         Turistico turistico = new Turistico();
         turistico.setId(c.getLong(c.getColumnIndex("_id")));
         turistico.setNome(c.getString(c.getColumnIndex("nome")));
-        turistico.setEndereco(c.getString(c.getColumnIndex("endereco")));
+        turistico.setLatitude(c.getString(c.getColumnIndex("latitude")));
+        turistico.setLongitude(c.getString(c.getColumnIndex("longitude")));
 
         return turistico;
     }
 
     public List<Turistico> listar() {
 
-        String[] col = new String[]{"_id", "nome", "endereco"};
+        String[] col = new String[]{"_id", "nome", "latitude", "longitude"};
         Cursor c = db.query("tbl_turisticos", col, null, null, null, null, null);
 
         List<Turistico> turisticos = new ArrayList<Turistico>();
@@ -66,7 +69,8 @@ public class TuristicoDAO {
                 Turistico turistico = new Turistico();
                 turistico.setId(c.getLong(c.getColumnIndex("_id")));
                 turistico.setNome(c.getString(c.getColumnIndex("nome")));
-                turistico.setEndereco(c.getString(c.getColumnIndex("endereco")));
+                turistico.setLatitude(c.getString(c.getColumnIndex("latitude")));
+                turistico.setLongitude(c.getString(c.getColumnIndex("longitude")));
 
                 turisticos.add(turistico);
             } while (c.moveToNext());

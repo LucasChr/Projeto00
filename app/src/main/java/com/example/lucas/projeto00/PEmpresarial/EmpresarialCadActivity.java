@@ -29,7 +29,7 @@ public class EmpresarialCadActivity extends Activity implements LocationListener
         edtTelefone = (EditText) findViewById(R.id.empresarial_cad_edtTelefone);
         edtLatitude = (EditText) findViewById(R.id.empresarial_cad_edtLatitude);
         edtLongitude = (EditText) findViewById(R.id.empresarial_cad_edtLongitude);
-        edtSite = (EditText)findViewById(R.id.empresarial_cad_edtSite);
+        edtSite = (EditText) findViewById(R.id.empresarial_cad_edtSite);
 
         dao = new EmpresaDAO(this);
         Intent intent = getIntent();
@@ -45,6 +45,7 @@ public class EmpresarialCadActivity extends Activity implements LocationListener
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         menu.add(0, 1, 0, "Salvar");
+        menu.add(0, 2, 0, "Alterar");
         menu.add(0, 3, 0, "Buscar");
         return true;
     }
@@ -56,7 +57,9 @@ public class EmpresarialCadActivity extends Activity implements LocationListener
             case 1:
                 salvar();
                 break;
-
+            case 2:
+                alterar();
+                break;
             case 3:
                 buscar();
                 break;
@@ -87,13 +90,25 @@ public class EmpresarialCadActivity extends Activity implements LocationListener
         setResult(3);
     }
 
+    public void alterar() {
+        Empresa e = new Empresa();
+        e.setId(new Long(edtID.getText().toString()));
+        e.setNome(edtNome.getText().toString());
+        e.setSite(edtSite.getText().toString());
+        e.setTelefone(edtTelefone.getText().toString());
+        e.setLatitude(edtLatitude.getText().toString());
+        e.setLongitude(edtLongitude.getText().toString());
+        dao.alterar(e);
+        setResult(2);
+        finish();
+    }
 
     @Override
     protected void onResume() {
         super.onResume();
         LocationManager lM = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        lM.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,this);
-        lM.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0,0,this);
+        lM.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+        lM.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
     }
 
     @Override

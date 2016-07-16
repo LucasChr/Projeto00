@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".Principal.MainActivity"
+    style="@style/Fundo"
+    >
+
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_pontosTuristicos"
+        android:id="@+id/principal_btnTuristicos"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="72dp"
+        android:layout_above="@+id/principal_btnEmpresas"
+        android:layout_centerHorizontal="true"
+        android:onClick="abrirPontosTuristicos"
+        android:textColor="@color/botao" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_pontosEmpresariais"
+        android:id="@+id/principal_btnEmpresas"
+        android:layout_gravity="center_horizontal"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="abrirPontosEmpresariais"
+        android:textColor="@color/botao"/>
+
+</RelativeLayout>

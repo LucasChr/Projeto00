@@ -2,9 +2,11 @@ package com.example.lucas.projeto00.PTuristico;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -17,7 +19,7 @@ public class TuristicoDadosActivity extends Activity {
 
     EmpresaDAO dao;
     EditText edtID;
-    TextView tvNome;
+    TextView tvNome, tvLatitude, tvLongitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,8 @@ public class TuristicoDadosActivity extends Activity {
 
         edtID = (EditText) findViewById(R.id.turistico_dados_edtID);
         tvNome = (TextView) findViewById(R.id.turistico_dados_tvNome);
+        tvLatitude = (TextView) findViewById(R.id.turistico_dados_tvLatitude);
+        tvLongitude = (TextView) findViewById(R.id.turistico_dados_tvLongitude);
 
         dao = new EmpresaDAO(this);
         Intent intent = getIntent();
@@ -48,10 +52,6 @@ public class TuristicoDadosActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         super.onOptionsItemSelected(item);
         switch (item.getItemId()) {
-            case 2:
-                alterar();
-                break;
-
             case 4:
                 excluir();
                 break;
@@ -68,15 +68,18 @@ public class TuristicoDadosActivity extends Activity {
         finish();
     }
 
-    public void alterar() {
-        Intent it = new Intent(this, TuristicoCadActivity.class);
-        startActivity(it);
-    }
-
     public void buscar() {
         Empresa empresa = dao.buscar(edtID.getText().toString());
         tvNome.setText(empresa.getNome());
+        tvLatitude.setText(empresa.getLatitude());
+        tvLongitude.setText(empresa.getLongitude());
         setResult(3);
+    }
+
+    public void abrirMapaT(View v) {
+        //Intent it = new Intent(Intent.ACTION_VIEW, Uri.parse("google.streetview:cbll" + tvLatitude.getText() +","+tvLongitude.getText()));
+        Intent it = new Intent(Intent.ACTION_VIEW, Uri.parse("geo: " + tvLatitude.getText() + "," + tvLongitude.getText() + "?z=17"));
+        startActivity(it);
     }
 }
 
