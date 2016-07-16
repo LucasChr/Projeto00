@@ -46,7 +46,7 @@ public class EmpresaDAO {
     public Empresa buscar(String id){
 
 
-        String[] colunas = new String[]{"_id","nome","telefone","endereco"};
+        String[] colunas = new String[]{"_id","nome","telefone","endereco","site"};
         String[] whereArgs = new String[]{id};
 
         Cursor c = db.query("tbl_empresas",colunas,"_id = ?",whereArgs,null,null,null);

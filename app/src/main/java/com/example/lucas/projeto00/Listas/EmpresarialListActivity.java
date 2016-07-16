@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.lucas.projeto00.PEmpresarial.Empresa;
 import com.example.lucas.projeto00.PEmpresarial.EmpresaDAO;
 import com.example.lucas.projeto00.PEmpresarial.EmpresarialCadActivity;
+import com.example.lucas.projeto00.PEmpresarial.EmpresarialDadosActivity;
 import com.example.lucas.projeto00.R;
 
 import java.util.List;
@@ -82,7 +83,7 @@ public class EmpresarialListActivity extends ListActivity {
     protected void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
         Empresa e = empresas.get(position);
-        Intent it = new Intent(this, EmpresarialCadActivity.class);
+        Intent it = new Intent(this, EmpresarialDadosActivity.class);
         it.putExtra("ID", String.valueOf(e.getId()));
         startActivityForResult(it, 2);
     }
