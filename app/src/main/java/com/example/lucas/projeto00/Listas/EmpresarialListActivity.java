@@ -106,7 +106,8 @@ public class EmpresarialListActivity extends ListActivity {
     }
 
     int valor = 0;
-    int max =50;
+    int max = 50;
+
     public void simularDownload() {
         valor++;
         try {

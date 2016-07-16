@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import com.example.lucas.projeto00.PTuristico.Turistico;
 import com.example.lucas.projeto00.PTuristico.TuristicoCadActivity;
 import com.example.lucas.projeto00.PTuristico.TuristicoDAO;
@@ -109,7 +110,8 @@ public class TuristicoListActivity extends ListActivity {
     }
 
     int valor = 0;
-    int max =50;
+    int max = 50;
+
     public void simularDownload() {
         valor++;
         try {
