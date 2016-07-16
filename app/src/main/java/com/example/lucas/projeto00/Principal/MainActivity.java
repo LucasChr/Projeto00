@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.lucas.projeto00.Listas.EmpresarialListActivity;
@@ -26,6 +27,36 @@ public class MainActivity extends Activity {
     public void abrirPontosEmpresariais(View v){
         Intent intent = new Intent(this, EmpresarialListActivity.class);
         startActivity(intent);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i("Projeto","onStart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i("Projeto","onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i("Projeto","onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i("Projeto","onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i("Projeto","onDestroy");
     }
 
 

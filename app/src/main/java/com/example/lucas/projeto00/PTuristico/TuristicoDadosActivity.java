@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -81,6 +82,25 @@ public class TuristicoDadosActivity extends Activity {
         Intent it = new Intent(Intent.ACTION_VIEW, Uri.parse("geo: " + tvLatitude.getText() + "," + tvLongitude.getText() + "?z=17"));
         startActivity(it);
     }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("valor", tvLongitude.getText().toString());
+        outState.putString("valor", tvLatitude.getText().toString());
+        outState.putString("valor", tvNome.getText().toString());
+        Log.i("bundle", "save");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+        tvLatitude.setText(bundle.getString("valor"));
+        tvLongitude.setText(bundle.getString("valor"));
+        tvNome.setText(bundle.getString("valor"));
+        Log.i("bundle", "restore");
+    }
+
 }
 
 

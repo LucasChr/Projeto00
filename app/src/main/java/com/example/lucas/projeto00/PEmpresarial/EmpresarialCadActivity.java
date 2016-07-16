@@ -7,6 +7,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -131,5 +132,29 @@ public class EmpresarialCadActivity extends Activity implements LocationListener
     @Override
     public void onProviderDisabled(String s) {
 
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("valor", edtID.getText().toString());
+        outState.putString("valor", edtLongitude.getText().toString());
+        outState.putString("valor", edtLatitude.getText().toString());
+        outState.putString("valor", edtNome.getText().toString());
+        outState.putString("valor", edtSite.getText().toString());
+        outState.putString("valor", edtTelefone.getText().toString());
+        Log.i("bundle", "save");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle bundle) {
+        super.onRestoreInstanceState(bundle);
+        edtID.setText(bundle.getString("valor"));
+        edtLongitude.setText(bundle.getString("valor"));
+        edtNome.setText(bundle.getString("valor"));
+        edtSite.setText(bundle.getString("valor"));
+        edtLatitude.setText(bundle.getString("valor"));
+        edtTelefone.setText(bundle.getString("valor"));
+        Log.i("bundle", "restore");
     }
 }
