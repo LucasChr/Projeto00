@@ -15,12 +15,6 @@ import com.example.lucas.projeto00.R;
 public class EmpresarialCadActivity extends Activity {
 
     EmpresaDAO dao;
-
-    final int MENU_SALVAR = 1;
-    final int MENU_ALTERAR = 2;
-    final int MENU_BUSCAR = 3;
-    final int MENU_EXCLUIR = 4;
-
     TextView edtEndereco;
     EditText edtID, edtNome, edtTelefone, edtSite;
 
@@ -73,6 +67,8 @@ public class EmpresarialCadActivity extends Activity {
         Empresa e = new Empresa();
         e.setNome(edtNome.getText().toString());
         e.setTelefone(edtTelefone.getText().toString());
+        e.setSite(edtSite.getText().toString());
+        e.setEndereco(edtEndereco.getText().toString());
         dao.salvar(e);
         setResult(1);
         finish();
@@ -83,6 +79,7 @@ public class EmpresarialCadActivity extends Activity {
         edtNome.setText(empresa.getNome());
         edtTelefone.setText(empresa.getTelefone());
         edtSite.setText(empresa.getSite());
+        edtEndereco.setText(empresa.getEndereco());
         setResult(3);
     }
 

@@ -14,9 +14,7 @@ public class TuristicoCadActivity extends Activity {
     TuristicoDAO dao;
 
     final int MENU_SALVAR = 1;
-    final int MENU_ALTERAR = 2;
     final int MENU_BUSCAR = 3;
-    final int MENU_EXCLUIR = 4;
 
     TextView tvEndereco;
     EditText edtID, edtNome;
@@ -42,9 +40,7 @@ public class TuristicoCadActivity extends Activity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
         menu.add(0, MENU_SALVAR, 0, "Salvar");
-        menu.add(0, MENU_ALTERAR, 0, "Alterar");
         menu.add(0, MENU_BUSCAR, 0, "Buscar");
-        menu.add(0, MENU_EXCLUIR, 0, "Excluir");
         return true;
     }
 
@@ -56,16 +52,8 @@ public class TuristicoCadActivity extends Activity {
                 salvar();
                 break;
 
-            case 2:
-                alterar();
-                break;
-
             case 3:
                 buscar();
-                break;
-
-            case 4:
-                excluir();
                 break;
         }
 
@@ -75,19 +63,8 @@ public class TuristicoCadActivity extends Activity {
     public void salvar() {
         Turistico t = new Turistico();
         t.setNome(edtNome.getText().toString());
-
         dao.salvar(t);
         setResult(1);
-        finish();
-    }
-
-    public void alterar() {
-        Turistico turistico = new Turistico();
-        turistico.setId(new Long(edtID.getText().toString()));
-        turistico.setNome(edtNome.getText().toString());
-        turistico.setEndereco(tvEndereco.getText().toString());
-        dao.alterar(turistico);
-        setResult(2);
         finish();
     }
 
@@ -98,10 +75,5 @@ public class TuristicoCadActivity extends Activity {
         setResult(3);
     }
 
-    public void excluir() {
-        dao.excluir(edtID.getText().toString());
-        setResult(4);
-        finish();
-    }
 }
 

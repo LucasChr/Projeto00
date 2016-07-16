@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.example.lucas.projeto00.PEmpresarial.EmpresarialDadosActivity"
+    style="@style/empresas">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nome"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/turistico_dados_tvNome"
+            style="@style/letras"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_Abrirmapa"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        style="@style/letras"/>
+
+    <ImageButton
+        android:id="@+id/turistico_dados_btnImgEndereco"
+        android:layout_width="match_parent"
+        android:layout_height="113dp"
+        android:layout_gravity="right"
+        android:onClick="abrirMapaT" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/tv_ID"
+            style="@style/letras"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/turistico_dados_edtID"/>
+    </LinearLayout>
+
+</LinearLayout>

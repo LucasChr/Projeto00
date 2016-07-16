@@ -26,7 +26,8 @@
         <activity android:name=".PEmpresarial.EmpresarialCadActivity" />
         <activity android:name=".PTuristico.TuristicoCadActivity" />
         <activity android:name=".Mapa.MapaActivity" />
-        <activity android:name=".PEmpresarial.EmpresarialDadosActivity"></activity>
+        <activity android:name=".PEmpresarial.EmpresarialDadosActivity" />
+        <activity android:name=".PTuristico.TuristicoDadosActivity"></activity>
     </application>
 
 </manifest>
