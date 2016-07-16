@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.lucas.projeto00.Listas.EmpresarialListActivity">
+    tools:context="com.example.lucas.projeto00.Listas.EmpresarialListActivity"
+    style="@style/empresas">
 
     <ListView
         android:layout_width="match_parent"

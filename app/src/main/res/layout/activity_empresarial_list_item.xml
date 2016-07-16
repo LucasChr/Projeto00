@@ -2,27 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    style="@style/empresas">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Nome"
-        android:id="@+id/empresarial_list_item_tvNome" />
+        android:id="@+id/empresarial_list_item_tvNome"
+        style="@style/letras"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Telefone"
-        android:id="@+id/empresarial_list_item_tvTelefone" />
+        android:id="@+id/empresarial_list_item_tvTelefone"
+        style="@style/letras"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Endereco"
-        android:id="@+id/empresarial_list_item_tvEndereco" />
+        android:id="@+id/empresarial_list_item_tvEndereco"
+        style="@style/letras"/>
 
 </LinearLayout>

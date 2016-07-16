@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
-    tools:context="com.example.lucas.projeto00.PEmpresarial.EmpresarialDadosActivity">
+    tools:context="com.example.lucas.projeto00.PEmpresarial.EmpresarialDadosActivity"
+    style="@style/empresas">
 
     <LinearLayout
         android:layout_width="match_parent"

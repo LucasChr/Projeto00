@@ -7,7 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".Principal.MainActivity">
+    tools:context=".Principal.MainActivity"
+    style="@style/Fundo"
+    >
 
 
 
@@ -21,7 +23,8 @@
         android:layout_marginBottom="72dp"
         android:layout_above="@+id/principal_btnEmpresas"
         android:layout_centerHorizontal="true"
-        android:onClick="abrirPontosTuristicos"/>
+        android:onClick="abrirPontosTuristicos"
+        android:textColor="@color/botao" />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,6 +34,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:onClick="abrirPontosEmpresariais"/>
+        android:onClick="abrirPontosEmpresariais"
+        android:textColor="@color/botao"/>
 
 </RelativeLayout>
