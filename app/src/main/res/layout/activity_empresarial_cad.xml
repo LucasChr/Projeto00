@@ -52,6 +52,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/tv_Site"
+        android:id="@+id/textView5" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textWebEmailAddress"
+        android:ems="10"
+        android:id="@+id/empresarial_cad_edtSite" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/tv_Endereco"
         android:id="@+id/textView3" />
 
@@ -69,13 +84,5 @@
         android:id="@+id/empresarial_cad_btnEndereço"
         android:layout_gravity="center_horizontal"
         android:onClick="definirEndereco"/>
-
-    <ImageButton
-        android:layout_width="157dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/empresarial_cad_btnImgEndereco"
-        android:layout_weight="0.44"
-        android:layout_gravity="center_horizontal"
-        android:onClick="abrirMapa"/>
 
 </LinearLayout>

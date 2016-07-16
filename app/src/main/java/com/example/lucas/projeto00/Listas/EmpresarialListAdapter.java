@@ -34,10 +34,12 @@ public class EmpresarialListAdapter extends ArrayAdapter<Empresa> {
         View itemV = inf.inflate(layout, null);
 
         TextView tvNome = (TextView) itemV.findViewById(R.id.empresarial_list_item_tvNome);
+        TextView tvTelefone = (TextView) itemV.findViewById(R.id.empresarial_list_item_tvTelefone);
         TextView tvEndereco = (TextView) itemV.findViewById(R.id.empresarial_list_item_tvEndereco);
 
         Empresa empresa = empresas.get(position);
         tvNome.setText(empresa.getNome());
+        tvTelefone.setText(empresa.getTelefone());
         tvEndereco.setText(empresa.getEndereco());
 
         return itemV;

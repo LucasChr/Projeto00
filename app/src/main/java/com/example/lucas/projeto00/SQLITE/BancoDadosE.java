@@ -9,13 +9,13 @@ import android.database.sqlite.SQLiteDatabase;
 public class BancoDadosE {
 
     private static final String NOME_BANCO = "Projeto";
-    private static final int VERSAO_BANCO = 2;
+    private static final int VERSAO_BANCO = 4;
 
 
     //scripts
     private static final String[] SCRIPT_DATABASE_DELETE = new String[] {"drop table if exists tbl_empresas;"};
 
-    private static final String[] SCRIPT_DATABASE_CREATE = new String[] {"create table tbl_empresas(_id integer primary key, nome text, telefone text, endereco text);"};
+    private static final String[] SCRIPT_DATABASE_CREATE = new String[] {"create table tbl_empresas(_id integer primary key, nome text, telefone text, endereco text, site text);"};
 
     private static SQLiteDatabase db;
 

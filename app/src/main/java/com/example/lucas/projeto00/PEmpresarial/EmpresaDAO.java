@@ -25,6 +25,8 @@ public class EmpresaDAO {
         ContentValues values = new ContentValues();
         values.put("nome",empresa.getNome());
         values.put("telefone",empresa.getTelefone());
+        values.put("endereco",empresa.getEndereco());
+        values.put("site",empresa.getSite());
         db.insert("tbl_empresas",null,values);
     }
 
@@ -32,6 +34,8 @@ public class EmpresaDAO {
         ContentValues values = new ContentValues();
         values.put("nome",empresa.getNome());
         values.put("telefone",empresa.getTelefone());
+        values.put("endereco",empresa.getEndereco());
+        values.put("site",empresa.getSite());
 
         String id = String.valueOf(empresa.getId());
         String[] whereArgs = new String[]{id};
@@ -53,6 +57,9 @@ public class EmpresaDAO {
         empresa.setId(c.getLong(c.getColumnIndex("_id")));
         empresa.setNome(c.getString(c.getColumnIndex("nome")));
         empresa.setTelefone(c.getString(c.getColumnIndex("telefone")));
+        empresa.setEndereco(c.getString(c.getColumnIndex("endereco")));
+        empresa.setSite(c.getString(c.getColumnIndex("site")));
+
         return empresa;
     }
 

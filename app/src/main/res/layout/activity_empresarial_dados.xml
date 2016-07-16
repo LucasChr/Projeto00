@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    tools:context="com.example.lucas.projeto00.PEmpresarial.EmpresarialDadosActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nome"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_Abrirmapa"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ImageButton
+        android:id="@+id/empresarial_dados_btnImgEndereco"
+        android:layout_width="match_parent"
+        android:layout_height="113dp"
+        android:layout_gravity="right"
+        android:onClick="abrirMapa" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/empresarial_dados_btnSite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/btn_site"
+            android:onClick="abrirSite"/>
+
+        <Button
+            android:id="@+id/empresarial_dados_btnLigar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Ligar"
+            android:text="@string/btn_ligar" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

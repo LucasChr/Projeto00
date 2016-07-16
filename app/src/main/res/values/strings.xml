@@ -9,4 +9,8 @@
     <string name="tv_EnderecoAtual">Encereço atual</string>
     <string name="btn_SetarEndereco">Definir Endereço</string>
     <string name="tv_ID">ID</string>
+    <string name="btn_ligar">Ligar</string>
+    <string name="tv_Abrirmapa">Abrir localização no mapa</string>
+    <string name="btn_site">Site</string>
+    <string name="tv_Site">Site</string>
 </resources>
